@@ -11,9 +11,10 @@ import { Observable, map, from } from 'rxjs';
 import { ChatService } from "./chat.service";
 import { ChatDto } from "./dto/chat.dto";
 
-@WebSocketGateway(5000, {
+@WebSocketGateway({
+  namespace: 'chat',
   cors: {
-    origin: 'http://localhost:3000',
+    origin: ['http://localhost:3001'],
   },
 })
 export class ChatGateway
